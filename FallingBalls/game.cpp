@@ -52,7 +52,7 @@ void Render()
 	std::for_each(balls.begin(), balls.end(), std::mem_fn(&MShape::update));
 
 	/* erase balls which exceed boundary */
-	balls.erase(std::remove_if(balls.begin(), balls.end(), std::mem_fn(&MShape::isBoundaryReached)), balls.end());
+	balls.remove_if(std::mem_fn(&MShape::isBoundaryReached));
 
 	/* draw each ball from the container */
 	glClear(GL_COLOR_BUFFER_BIT);
